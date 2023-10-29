@@ -9,34 +9,39 @@ import InputWithLabel from "../../components/inputWithLabel/InputWithLabel";
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from "react-toastify";
 import axios from "axios";
-function  MatchModal({modalTitle, data}) {
+
+function MatchModal({modalTitle, data}) {
 
     const [show, setShow] = useState(false)
 
-    const handleClose = () => setShow(false)
-    const handleOpen = () => setShow(true)
-
     const [title, setTitle] = useState()
-    const [schedule, setSchedule] = useState({
-        local : "",
-        date: "",
-    })
+    const [local, setLocal] = useState()
+    const [date, setDate] = useState()
     const [slot, setSlot] = useState()
     const [category, setCategory] = useState()
 
+    const handleClose = () => setShow(false)
+    const handleOpen = () => setShow(true)
+    const schedule = {
+        local: local,
+        date: date,
+    };
     const createRequest = async (e) => {
         e.preventDefault()
+
         const request = {title, schedule, slot, category}
         try {
-            await axios.post("/match", request)
+            await axios.post("http://localhost:8080/match", request)
             NotifySuccess("Partida criada com sucesso!")
             data()
+            console.log("request", request)
             handleClose()
         } catch (error) {
             console.log("deu erro", error)
-            NotifyError("Erro ao cadastrar produto")
+            NotifyError("Erro ao cadastrar Partida")
         }
     }
+
     return (
         <div>
             <ToastContainer position="top-center" closeOnClick pauseOnHover theme="light"/>
@@ -46,7 +51,7 @@ function  MatchModal({modalTitle, data}) {
                     <Modal.Title>Nova Partida</Modal.Title>
                 </Modal.Header>
                 <ModalBody>
-                    <form >
+                    <form>
                         <InputWithLabel
                             title="Titulo:"
                             type="text"
@@ -67,14 +72,14 @@ function  MatchModal({modalTitle, data}) {
                         />
                         <InputWithLabel
                             title="Data:"
-                            type="date"
-                            onChange={(e) => setSchedule(schedule.date(e.target.value))}
+                            type="datetime-local"
+                            onChange={(e) => setDate(e.target.value)}
                             className="input"
                         />
                         <InputWithLabel
                             title="Local:"
                             type="text"
-                            onChange={(e) => setSchedule(schedule.local(e.target.value))}
+                            onChange={(e) => setLocal(e.target.value)}
                             className="input"
                         />
                     </form>
