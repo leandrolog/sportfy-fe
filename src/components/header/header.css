@@ -1,0 +1,17 @@
+.header-container > svg {
+    position: fixed;
+    color: #1A202C;
+    width: 30px;
+    height: 30px;
+    margin-top: 32px;
+    margin-left: 32px;
+    cursor: pointer;
+}
+
+.header-container {
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    right: 0;
+    z-index: 10;
+}
