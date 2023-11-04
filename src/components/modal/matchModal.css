@@ -7,6 +7,8 @@
     margin: auto;
     border: 1px solid black;
 }
+.ModalBody{
+}
 .modal-header {
     background-color: #585858;
     color: white;
@@ -34,7 +36,9 @@
     width: 25%;
 }
 .input-container{
-    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: grid;
 }
 .input{
     justify-content: center;

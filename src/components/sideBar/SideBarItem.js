@@ -1,12 +1,15 @@
 import React from 'react'
-import { Container} from "./StyledSideBarItem";
+import {Container} from "./StyledSideBarItem";
 
-const SidebarItem = ({ Icon, Text }) => {
+const SidebarItem = ({Icon, Text, path}) => {
     return (
-        <Container>
-            <Icon />
-            {Text}
-        </Container>
+        <a href={path}>
+            <Container>
+                {Text}
+                <Icon/>
+            </Container>
+        </a>
+
     )
 }
 

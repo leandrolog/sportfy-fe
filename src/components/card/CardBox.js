@@ -1,26 +1,47 @@
-import './card.css'
-import React from "react";
+import './card.css';
+import React, {useEffect, useState} from "react";
 import 'moment-timezone';
 import {DateTimeConverter} from "../date-time/DateTimeConverter";
-
+import OpenMatchModal from "../modal/OpenMatchModal";
+import axios from "axios";
 
 const CardBox = ({data}) => {
+    const [matchId, setMatchId] = useState(null);
+    const [match, setMatch] = useState();
+
+    const openModal = (id) => {
+        setMatchId(id);
+    }
+
     return (
         <div className="card-box">
-            {data && data.map((x, index) => (
-                <div key={index} className="card-container">
-                    <div className="card-header">{x.title}</div>
-                    <div className="card-content">Modalidade: {x.category}</div>
-                    <div className="card-meta row">
-                        <div>Vagas: {x.slot}</div>
-                        <div>Local: {x.schedule.local}</div>
-                    </div>
-                    <small className="card-footer">
-                        Data: {DateTimeConverter({date: x.schedule.date})}
-                    </small>
-                </div>
-            ))}
+            {data &&
+                data.map((x) => (
+                    <button
+                        className="card-container"
+                        key={x.id}
+                        type="button"
+                        onClick={() => openModal(x.id)}
+                    >
+                        <div className="card-header">{x.title}</div>
+                        <div className="card-content">Modalidade: {x.category}</div>
+                        <div className="card-meta row">
+                            <div>Vagas: {x.slot}</div>
+                            <div>Local: {x.schedule.local}</div>
+                        </div>
+                        <small className="card-footer">
+                            Data: {DateTimeConverter({date: x.schedule.date})}
+                        </small>
+                    </button>
+                ))}
+            <OpenMatchModal
+                show={matchId !== null}
+                modalTitle="Your Modal Title"
+                handleClose={() => setMatchId(null)}
+                id={matchId}
+            />
         </div>
-    )
-}
+    );
+};
+
 export default CardBox;

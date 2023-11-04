@@ -22,10 +22,10 @@ const SideBar = ({active}) => {
         <Container sidebar={active}>
             <FaTimes onClick={closeSidebar}/>
             <Content>
-                <SidebarItem Icon={GiSoccerBall} Text="Partidas"/>
+                <SidebarItem path="/" Icon={GiSoccerBall} Text="Partidas" />
                 <SidebarItem Icon={FaChartBar} Text="Estatisticas"/>
                 <SidebarItem Icon={FaRegCalendarAlt} Text="Calendario"/>
-                <SidebarItem Icon={FaIdCardAlt} Text="Perfil"/>
+                <SidebarItem path="/profile" Icon={FaIdCardAlt} Text="Perfil"/>
                 <div className="sidebar-bottom">
                     <SidebarItem Icon={FaRegSun} Text="Configuração"/>
                 </div>
