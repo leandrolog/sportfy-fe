@@ -26,9 +26,8 @@ function MatchModal({modalTitle, data}) {
         local: local,
         date: date,
     };
-    const createRequest = async (e) => {
+    const createMatch = async (e) => {
         e.preventDefault()
-
         const request = {title, schedule, slot, category}
         try {
             await axios.post("http://localhost:8080/match", request)
@@ -43,7 +42,7 @@ function MatchModal({modalTitle, data}) {
     }
 
     return (
-        <div>
+        <div >
             <ToastContainer position="top-center" closeOnClick pauseOnHover theme="light"/>
             <Button variant="primary" onClick={handleOpen}>{modalTitle}</Button>
             <Modal show={show} onHide={handleClose}>
@@ -87,7 +86,7 @@ function MatchModal({modalTitle, data}) {
                         <Button className="button-close" onClick={handleClose}>
                             close
                         </Button>
-                        <Button className="button-save" onClick={createRequest}>
+                        <Button className="button-save" onClick={createMatch}>
                             Save
                         </Button>
                     </Modal.Footer>

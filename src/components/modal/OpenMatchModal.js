@@ -5,16 +5,29 @@ import Modal from "react-bootstrap/Modal";
 import { ModalBody } from "react-bootstrap";
 import axios from "axios";
 import InputWithLabel from "../inputWithLabel/InputWithLabel";
+import {GiEntryDoor} from "react-icons/gi";
+import {NotifyError, NotifySuccess} from "../Notify";
+import {user_id} from "../../pages/auth/config/AuthConfig";
 
 function OpenMatchModal({ show, handleClose, id , data}) {
 
     const [match, setMatch] = useState();
-    const [category, setCategory] = useState()
 
+    const [matchId, setMatchId] = useState();
+    const [category, setCategory] = useState()
+    const [players, setPlayers] = useState()
+    const [date, setDate] = useState()
+    const [local, setLocal] = useState()
+    const [slot, setSlot] = useState()
+    const [title, setTitle] = useState()
+    const [userId, setUserId] = useState(user_id)
+
+    console.log("aaaaaa", userId)
     const getMatch = async () => {
         try {
             const response = await axios.get(`http://localhost:8080/match/${id}`);
             setMatch(response.data);
+            setMatchId(response.data.id);
             setCategory(response.data.category)
             setDate(response.data.schedule.date)
             setLocal(response.data.schedule.local)
@@ -25,17 +38,22 @@ function OpenMatchModal({ show, handleClose, id , data}) {
             console.log("error", error);
         }
     }
-    console.log("match", match);
+
+    const addPlayer = async (e) => {
+        e.preventDefault()
+        try {
+            await axios.post(`http://localhost:8080/match/${matchId}/addPlayer/${userId}`,  )
+            handleClose()
+            NotifySuccess("Cadastrado na partida com sucesso!")
+        } catch (error) {
+            console.log("deu erro", error)
+            NotifyError("Erro ao entrar na Partida")
+        }
+    }
 
     useEffect(() => {
         getMatch()
     }, [id])
-
-    const [players, setPlayers] = useState(match?.players)
-    const [date, setDate] = useState(match?.schedule?.date)
-    const [local, setLocal] = useState(match?.schedule?.local)
-    const [slot, setSlot] = useState(match?.slot )
-    const [title, setTitle] = useState(match?.title )
 
     const playersToString = (players) => {
         return players && players.map((player) => player.name).join(', ');
@@ -43,11 +61,14 @@ function OpenMatchModal({ show, handleClose, id , data}) {
 
     return (
         <div >
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} >
                 <Modal.Header>
-                    <Modal.Title>Partida</Modal.Title>
+                    <Modal.Title>{title}</Modal.Title>
+                    <Button className="button-close" onClick={handleClose}>
+                        <GiEntryDoor/>
+                    </Button>
                 </Modal.Header>
-                <ModalBody>
+                <ModalBody >
                     <form>
                         <InputWithLabel
                             title="Categoria:"
@@ -78,11 +99,8 @@ function OpenMatchModal({ show, handleClose, id , data}) {
                             className="input"
                         />
                     </form>
-                    <Modal.Footer className="footer">
-                        <Button className="button-close" onClick={handleClose}>
-                            Close
-                        </Button>
-                        <Button className="button-save">Save</Button>
+                    <Modal.Footer >
+                        <Button className="button-save" onClick={addPlayer}>Entrar na partida</Button>
                     </Modal.Footer>
                 </ModalBody>
             </Modal>

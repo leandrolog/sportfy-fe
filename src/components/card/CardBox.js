@@ -36,7 +36,6 @@ const CardBox = ({data}) => {
                 ))}
             <OpenMatchModal
                 show={matchId !== null}
-                modalTitle="Your Modal Title"
                 handleClose={() => setMatchId(null)}
                 id={matchId}
             />
