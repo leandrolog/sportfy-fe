@@ -44,7 +44,7 @@ function MatchModal({modalTitle, data}) {
     return (
         <div >
             <ToastContainer position="top-center" closeOnClick pauseOnHover theme="light"/>
-            <Button variant="primary" onClick={handleOpen}>{modalTitle}</Button>
+            <Button className="btn-open-match" onClick={handleOpen}>{modalTitle}</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header>
                     <Modal.Title>Nova Partida</Modal.Title>
