@@ -7,32 +7,42 @@ import Match from "./pages/match/Match";
 import NotFound from "./pages/NotFound";
 import Profile from "./pages/profile/Profile";
 import Login from "./pages/auth/login/Login";
+import Register from "./pages/auth/register/Register";
 
 
 const router = createBrowserRouter([
     {
-        path: "/",
-        element: <Match />,
-        errorElement: <NotFound />,
-    },
-    {
-        path: "/profile",
-        element: <Profile />,
-        errorElement: <NotFound />,
-    },
-    {
-        path: "/login",
-        element: <Login />,
-        errorElement: <NotFound />,
-    },
+        element: <App/>,
+        children: [
+            {
+                path: "/match",
+                element: <Match/>,
+                errorElement: <NotFound/>,
+            },
+            {
+                path: "/profile",
+                element: <Profile/>,
+                errorElement: <NotFound/>,
+            },
+            {
+                path: "/login",
+                element: <Login/>,
+                errorElement: <NotFound/>,
+            },
+            {
+                path: "/register",
+                element: <Register/>,
+                errorElement: <NotFound/>,
+            }
+        ],
+    }
 ]);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-      <RouterProvider router={router}/>
-        <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <RouterProvider router={router}/>
+    </React.StrictMode>
 );
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import {Container} from "./StyledSideBarItem";
 
-const SidebarItem = ({Icon, Text, path}) => {
+const SidebarItem = ({Icon, Text, path, onClick}) => {
     return (
         <a href={path}>
-            <Container>
+            <Container onClick={onClick}>
                 {Text}
                 <Icon/>
             </Container>

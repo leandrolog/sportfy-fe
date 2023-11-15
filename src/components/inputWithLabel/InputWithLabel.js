@@ -1,5 +1,10 @@
-const InputWithLabel = ({type, defaultValue, title, onChange, placeholder, className, value, disabled}) => {
-
+const InputWithLabel = ({
+                            type, defaultValue, title, onChange, placeholder,
+                            className, value, disabled, style
+                        }) => {
+    const inputStyle = {
+        ...style
+    };
     return (
         <div className="input-container">
             <label className="label-title">{title}</label>
@@ -11,6 +16,7 @@ const InputWithLabel = ({type, defaultValue, title, onChange, placeholder, class
                 onChange={onChange}
                 className={className}
                 defaultValue={defaultValue}
+                style={inputStyle}
             >
             </input>
         </div>

@@ -9,7 +9,7 @@ import {GiEntryDoor} from "react-icons/gi";
 import {NotifyError, NotifySuccess} from "../Notify";
 import {user_id} from "../../pages/auth/config/AuthConfig";
 
-function OpenMatchModal({ show, handleClose, id , data}) {
+function OpenMatchModal({ show, handleClose, id  }) {
 
     const [match, setMatch] = useState();
 
@@ -22,7 +22,6 @@ function OpenMatchModal({ show, handleClose, id , data}) {
     const [title, setTitle] = useState()
     const [userId, setUserId] = useState(user_id)
 
-    console.log("aaaaaa", userId)
     const getMatch = async () => {
         try {
             const response = await axios.get(`http://localhost:8080/match/${id}`);

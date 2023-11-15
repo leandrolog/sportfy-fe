@@ -1,13 +1,26 @@
 import './App.css';
 import Header from "./components/header/Header";
-import {BrowserRouter} from "react-router-dom";
+import {Outlet, useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
 function App() {
-  return (
-      <BrowserRouter>
-            <Header/>
-      </BrowserRouter>
-  );
+    const navigate = useNavigate()
+
+    const token = sessionStorage.getItem('token')
+    useEffect(() => {
+        if (!token) {
+            return navigate('/login')
+        }
+    }, [])
+
+    return (
+        <div>
+            <Outlet/>
+            {token &&
+                <Header/>
+            }
+        </div>
+    );
 }
 
 export default App;

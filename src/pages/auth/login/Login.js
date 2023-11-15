@@ -4,8 +4,8 @@ import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import 'react-toastify/dist/ReactToastify.css';
-import axios from "axios";
 import {HttpRequest} from "../config/AuthConfig";
+import {NotifyError, NotifySuccess} from "../../../components/Notify";
 
 function Login() {
 
@@ -21,12 +21,18 @@ function Login() {
             const token = response.data;
             console.log("token", token)
             sessionStorage.setItem('token', token);
+            NotifySuccess("Bem vindo!")
             setTimeout(() => {
-                navigate('/')
+                navigate('/match')
             }, 1500)
         } catch (error) {
+            NotifyError("Erro ao entrar")
             console.log(error)
         }
+    }
+
+    const registerScreen = () => {
+        navigate("/register")
     }
 
     return (
@@ -48,12 +54,20 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </form>
-            <Button
-                className="btn-in"
-                onClick={handleLogin}
-            >
-                Entrar
-            </Button>
+            <div style={{display: 'flex', justifyContent:"center", flexDirection: 'column'}}>
+                <Button
+                    className="btn-in"
+                    onClick={handleLogin}
+                >
+                    Entrar
+                </Button>
+                <Button
+                    className="btn-register"
+                    onClick={registerScreen}
+                >
+                    Registrar
+                </Button>
+            </div>
         </div>
         </body>
     )

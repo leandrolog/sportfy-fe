@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import './header.css'
-import { FaBars } from 'react-icons/fa'
+import {FaBars} from 'react-icons/fa'
 import SideBar from "../sideBar/SideBar";
 
 const Header = () => {
-    const [sidebar, setSidebar] = useState(true)
-
+    const [sidebar, setSidebar] = useState(false)
     const showSidebar = () => setSidebar(!sidebar)
 
     return (
@@ -18,5 +17,4 @@ const Header = () => {
         </div>
     )
 }
-
 export default Header

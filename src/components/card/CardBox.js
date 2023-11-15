@@ -1,13 +1,11 @@
 import './card.css';
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import 'moment-timezone';
 import {DateTimeConverter} from "../date-time/DateTimeConverter";
 import OpenMatchModal from "../modal/OpenMatchModal";
-import axios from "axios";
 
 const CardBox = ({data}) => {
     const [matchId, setMatchId] = useState(null);
-    const [match, setMatch] = useState();
 
     const openModal = (id) => {
         setMatchId(id);
