@@ -23,7 +23,7 @@ function Match() {
     }, [])
     return (
         <div>
-            <div className="match-header">
+            <div className="page-header">
                 <h1>Match page</h1>
             </div>
             <div className="modal-button">

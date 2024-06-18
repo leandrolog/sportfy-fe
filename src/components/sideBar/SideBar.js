@@ -29,7 +29,7 @@ const SideBar = ({active}) => {
             <FaTimes onClick={closeSidebar}/>
             <Content>
                 <SidebarItem path="/match" Icon={GiSoccerBall} Text="Partidas" />
-                <SidebarItem Icon={FaChartBar} Text="Estatisticas"/>
+                <SidebarItem path="/statics" Icon={FaChartBar} Text="Estatisticas"/>
                 <SidebarItem Icon={FaRegCalendarAlt} Text="Calendario"/>
                 <SidebarItem path="/profile" Icon={FaIdCardAlt} Text="Perfil"/>
                 <div className="sidebar-bottom">
