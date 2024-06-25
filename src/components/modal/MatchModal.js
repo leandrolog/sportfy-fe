@@ -84,10 +84,10 @@ function MatchModal({modalTitle, data}) {
                     </form>
                     <Modal.Footer clasName="footer">
                         <Button className="button-close" onClick={handleClose}>
-                            close
+                            Fechar
                         </Button>
                         <Button className="button-save" onClick={createMatch}>
-                            Save
+                            Salvar
                         </Button>
                     </Modal.Footer>
                 </ModalBody>

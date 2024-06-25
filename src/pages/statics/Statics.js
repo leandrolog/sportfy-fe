@@ -25,12 +25,11 @@ function Statics(props) {
     const data = {
         labels: [
             'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-        ],
+                    ],
         datasets: [
             {
                 label: 'Número de vezes que pratiquei esporte',
-                data: [3, 1, 3, 4, 2, 5, 4, 1, 1, 3, 4, 5],
+                data: [3, 1, 3, 4, 2, 5],
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,

@@ -24,7 +24,7 @@ function Match() {
     return (
         <div>
             <div className="page-header">
-                <h1>Match page</h1>
+                <h1>Partidas</h1>
             </div>
             <div className="modal-button">
                 <MatchModal

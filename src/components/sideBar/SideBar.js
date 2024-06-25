@@ -30,7 +30,7 @@ const SideBar = ({active}) => {
             <Content>
                 <SidebarItem path="/match" Icon={GiSoccerBall} Text="Partidas" />
                 <SidebarItem path="/statics" Icon={FaChartBar} Text="Estatisticas"/>
-                <SidebarItem Icon={FaRegCalendarAlt} Text="Calendario"/>
+                <SidebarItem path="/calendar" Icon={FaRegCalendarAlt} Text="Calendario"/>
                 <SidebarItem path="/profile" Icon={FaIdCardAlt} Text="Perfil"/>
                 <div className="sidebar-bottom">
                     <SidebarItem onClick={onLogout} Icon={FaRegSun} Text="Sair"/>

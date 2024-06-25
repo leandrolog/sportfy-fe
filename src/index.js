@@ -9,6 +9,7 @@ import Profile from "./pages/profile/Profile";
 import Login from "./pages/auth/login/Login";
 import Register from "./pages/auth/register/Register";
 import Statics from "./pages/statics/Statics";
+import Calendar from "./pages/calendar/Calendar";
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
             {
                 path: "/profile",
                 element: <Profile/>,
+                errorElement: <NotFound/>,
+            },
+            {
+                path: "/calendar",
+                element: <Calendar/>,
                 errorElement: <NotFound/>,
             },
             {
