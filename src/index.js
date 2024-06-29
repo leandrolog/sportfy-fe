@@ -10,6 +10,7 @@ import Login from "./pages/auth/login/Login";
 import Register from "./pages/auth/register/Register";
 import Statics from "./pages/statics/Statics";
 import Calendar from "./pages/calendar/Calendar";
+import CalendarPage from "./pages/calendar/Calendar";
 
 
 const router = createBrowserRouter([
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/calendar",
-                element: <Calendar/>,
+                element: <CalendarPage/>,
                 errorElement: <NotFound/>,
             },
             {

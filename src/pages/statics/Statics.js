@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bar, Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
     ArcElement,
@@ -25,7 +25,7 @@ function Statics(props) {
     const data = {
         labels: [
             'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-                    ],
+        ],
         datasets: [
             {
                 label: 'Número de vezes que pratiquei esporte',
@@ -37,26 +37,7 @@ function Statics(props) {
         ],
     };
 
-    // Calculate total number of times sports were practiced
     const total = data.datasets[0].data.reduce((acc, curr) => acc + curr, 0);
-
-    // Pie chart data with total only
-    const pieChartData = {
-        labels: ['Total'],
-        datasets: [
-            {
-                label: 'Total de vezes que pratiquei esporte',
-                data: [total],
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                ],
-                borderWidth: 1,
-            },
-        ],
-    };
 
     const options = {
         responsive: true,
@@ -66,7 +47,7 @@ function Statics(props) {
             },
             tooltip: {
                 callbacks: {
-                    label: function(tooltipItem) {
+                    label: function (tooltipItem) {
                         return tooltipItem.label + ': ' + tooltipItem.raw.toFixed(2);
                     }
                 }
@@ -75,16 +56,45 @@ function Statics(props) {
     };
 
     return (
-        <div>
-            <div className="page-header">
-                <p>Estatísticas</p>
+        <div style={{ padding: '50px' }}>
+            <div className="page-header" style={{ textAlign: 'center', marginBottom: '40px' }}>
+                <p style={{ fontSize: '24px', fontWeight: 'bold' }}>Estatísticas</p>
             </div>
-            <Bar
-                options={options}
-                data={data}
-                {...props}
-                height="60px"
-            />
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div style={{ flex: 1, maxWidth: '1200px' }}>
+                    <Bar
+                        options={options}
+                        data={data}
+                        {...props}
+                        height={500}
+                        width={1200}
+                    />
+                </div>
+                <div style={{
+                    marginLeft: '40px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                }}>
+                    <div style={{
+                        width: '180px',
+                        height: '180px',
+                        borderRadius: '50%',
+                        backgroundColor: 'yellow',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        fontSize: '40px',
+                        fontWeight: 'bold',
+                        border: '1px solid black'
+                    }}>
+                        {total}
+                    </div>
+                    <p style={{ marginTop: '10px', textAlign: 'center', fontSize: '18px', fontWeight: 'bold' }}>
+                        Total de Beach Tenis
+                    </p>
+                </div>
+            </div>
         </div>
     );
 }
