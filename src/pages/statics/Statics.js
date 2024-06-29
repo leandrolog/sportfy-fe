@@ -80,7 +80,7 @@ function Statics(props) {
                         width: '180px',
                         height: '180px',
                         borderRadius: '50%',
-                        backgroundColor: 'yellow',
+                        backgroundColor: '#88bdbc',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -91,7 +91,7 @@ function Statics(props) {
                         {total}
                     </div>
                     <p style={{ marginTop: '10px', textAlign: 'center', fontSize: '18px', fontWeight: 'bold' }}>
-                        Total de Beach Tenis
+                        Partidas no ano
                     </p>
                 </div>
             </div>

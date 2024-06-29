@@ -19,7 +19,6 @@ function Login() {
         try {
             const response = await HttpRequest.post(`/login`, credential)
             const token = response.data;
-            console.log("token", token)
             sessionStorage.setItem('token', token);
             NotifySuccess("Bem vindo!")
             setTimeout(() => {

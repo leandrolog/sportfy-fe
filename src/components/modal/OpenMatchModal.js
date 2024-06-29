@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { ModalBody } from "react-bootstrap";
+import {ModalBody} from "react-bootstrap";
 import axios from "axios";
 import InputWithLabel from "../inputWithLabel/InputWithLabel";
 import {GiEntryDoor} from "react-icons/gi";
 import {NotifyError, NotifySuccess} from "../Notify";
 import {user_id} from "../../pages/auth/config/AuthConfig";
 
-function OpenMatchModal({ show, handleClose, id  }) {
+function OpenMatchModal({show, handleClose, id}) {
 
     const [match, setMatch] = useState();
 
@@ -40,7 +40,7 @@ function OpenMatchModal({ show, handleClose, id  }) {
     const addPlayer = async (e) => {
         e.preventDefault()
         try {
-            await axios.post(`http://localhost:8080/match/${matchId}/addPlayer/${userId}`,  )
+            await axios.post(`http://localhost:8080/match/${matchId}/addPlayer/${userId}`,)
             handleClose()
             NotifySuccess("Cadastrado na partida com sucesso!")
         } catch (error) {
@@ -58,15 +58,12 @@ function OpenMatchModal({ show, handleClose, id  }) {
     };
 
     return (
-        <div >
-            <Modal show={show} onHide={handleClose} >
+        <div>
+            <Modal show={show} onHide={handleClose}>
                 <Modal.Header>
                     <Modal.Title>{title}</Modal.Title>
-                    <Button className="button-close" onClick={handleClose}>
-                        <GiEntryDoor/>
-                    </Button>
                 </Modal.Header>
-                <ModalBody >
+                <ModalBody>
                     <form>
                         <InputWithLabel
                             title="Categoria:"
@@ -97,8 +94,11 @@ function OpenMatchModal({ show, handleClose, id  }) {
                             className="input"
                         />
                     </form>
-                    <Modal.Footer >
+                    <Modal.Footer>
                         <Button className="button-save" onClick={addPlayer}>Entrar na partida</Button>
+                        <Button className="button-close" onClick={handleClose}>
+                            Sair
+                        </Button>
                     </Modal.Footer>
                 </ModalBody>
             </Modal>

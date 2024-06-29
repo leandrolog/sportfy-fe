@@ -17,7 +17,6 @@ function Match() {
             console.log("error", error)
         }
     }
-
     useEffect(() => {
         getMatch()
     }, [])
@@ -29,7 +28,7 @@ function Match() {
             <div className="modal-button">
                 <MatchModal
                     data={getMatch}
-                    modalTitle="Adicionar"
+                    modalTitle="Criar"
                 />
             </div>
             <div className="match-content">
