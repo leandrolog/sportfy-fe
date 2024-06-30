@@ -54,6 +54,7 @@ function MatchModal({modalTitle, data}) {
                         <InputWithLabel
                             placeholder="Titulo:"
                             type="text"
+                            inputClassName={"input-container"}
                             onChange={(e) => setTitle(e.target.value)}
                             className="input"
                         />
@@ -62,9 +63,12 @@ function MatchModal({modalTitle, data}) {
                             type="text"
                             onChange={(e) => setCategory(e.target.value)}
                             className="input"
+                            inputClassName={"input-container"}
+
                         />
                         <InputWithLabel
                             placeholder="Vagas:"
+                            inputClassName={"input-container"}
                             type="text"
                             onChange={(e) => setSlot(e.target.value)}
                             className="input"
@@ -73,12 +77,14 @@ function MatchModal({modalTitle, data}) {
                             placeholder="Data:"
                             type="datetime-local"
                             onChange={(e) => setDate(e.target.value)}
+                            inputClassName={"input-container"}
                             className="input"
                         />
                         <InputWithLabel
                             placeholder="Local:"
                             type="text"
                             onChange={(e) => setLocal(e.target.value)}
+                            inputClassName={"input-container"}
                             className="input"
                         />
                     </form>

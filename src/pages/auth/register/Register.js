@@ -45,12 +45,14 @@ function Register() {
                 <ToastContainer position="top-center" closeOnClick pauseOnHover theme="light"/>
                 <InputWithLabel
                     title="Nome"
+                    inputClassName={"input-container"}
                     type="text"
                     onChange={e => setName(e.target.value)}
                     style={{marginBottom: '1rem'}}
                 />
                 <InputWithLabel
                     title="Email"
+                    inputClassName={"input-container"}
                     type="email"
                     onChange={e => setEmail(e.target.value)}
                     style={{marginBottom: '1rem'}}
@@ -59,16 +61,19 @@ function Register() {
                     title="Senha"
                     type="password"
                     onChange={e => setPassword(e.target.value)}
+                    inputClassName={"input-container"}
                     style={{marginBottom: '1rem'}}
                 />
                 <InputWithLabel
                     title="Sexo"
                     type="text"
                     onChange={e => setGender(e.target.value)}
+                    inputClassName={"input-container"}
                     style={{marginBottom: '1rem'}}
                 />
                 <InputWithLabel
                     title="Cidade"
+                    inputClassName={"input-container"}
                     type="text"
                     onChange={e => setCity(e.target.value)}
                     style={{marginBottom: '1rem'}}
@@ -77,9 +82,11 @@ function Register() {
                     title="Esporte preferido"
                     type="text"
                     onChange={e => setFavoriteSport(e.target.value)}
+                    inputClassName={"input-container"}
                     style={{marginBottom: '1rem'}}
                 />
                 <InputWithLabel
+                    inputClassName={"input-container"}
                     title="Data de nascimento"
                     type="date"
                     onChange={e => setBirthDate(e.target.value)}

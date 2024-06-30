@@ -83,6 +83,7 @@ function OpenMatchModal({show, handleClose, id}) {
                         <InputWithLabel
                             placeholder="Categoria:"
                             type="text"
+                            inputClassName={"input-container"}
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
                             className="input"
@@ -92,6 +93,7 @@ function OpenMatchModal({show, handleClose, id}) {
                             type="datetime-local"
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
+                            inputClassName={"input-container"}
                             className="input"
                         />
                         <InputWithLabel
@@ -99,6 +101,7 @@ function OpenMatchModal({show, handleClose, id}) {
                             type="text"
                             value={local}
                             onChange={(e) => setLocal(e.target.value)}
+                            inputClassName={"input-container"}
                             className="input"
                         />
                         {players && players.map((player, index) => (

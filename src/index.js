@@ -10,6 +10,7 @@ import Login from "./pages/auth/login/Login";
 import Register from "./pages/auth/register/Register";
 import Statics from "./pages/statics/Statics";
 import CalendarPage from "./pages/calendar/Calendar";
+import NewLocalForm from "./pages/local/NewLocalForm";
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
             {
                 path: "/profile",
                 element: <Profile/>,
+                errorElement: <NotFound/>,
+            },
+            {
+                path: "/new-local",
+                element: <NewLocalForm/>,
                 errorElement: <NotFound/>,
             },
             {

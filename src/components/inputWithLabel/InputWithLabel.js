@@ -1,12 +1,12 @@
 const InputWithLabel = ({
                             type, defaultValue, title, onChange, placeholder,
-                            className, value, disabled, style
+                            className, value, disabled, style, inputClassName
                         }) => {
     const inputStyle = {
         ...style
     };
     return (
-        <div className="input-container">
+        <div className={inputClassName}>
             <label className="label-title">{title}</label>
             <input
                 type={type}
