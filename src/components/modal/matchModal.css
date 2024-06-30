@@ -30,10 +30,12 @@
 }
 
 .modal-body {
+    background-image: url('../../assets/fieldv2.png');
     background-color: #0d6efd;
     display: flex;
     flex-grow: 1;
     padding: 7px;
+    height: 373px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -90,11 +92,28 @@
     border-radius: 4px;
     cursor: pointer;
 }
-.btn-open-match{
+
+.btn-open-match {
     padding: 10px 20px;
     border: none;
     border-radius: 1rem;
     background-color: rgba(13, 110, 253, 0.71);
     color: white;
     cursor: pointer;
+}
+
+.player {
+    position: absolute;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.player-red {
+    color: white;
+    background-color: red;
+}
+
+.player-blue {
+    background-color: #0a58ca;
+    color: white;
 }

@@ -30,8 +30,27 @@ function OpenMatchModal({show, handleClose, id}) {
             setDate(response.data.schedule.date)
             setLocal(response.data.schedule.local)
             setSlot(response.data.slot)
-            setPlayers(response.data.players)
             setTitle(response.data.title)
+            setPlayers(
+                response.data.players.slice(0, 4).map((player, index) => ({
+                    ...player,
+                    position: (() => {
+                        switch (index) {
+                            case 0:
+                                return {x: 85, y: 150};
+                            case 1:
+                                return {x: 475, y: 150};
+                            case 2:
+                                return {x: 75, y: 270};
+                            case 3:
+                                return {x: 465, y: 270};
+                            default:
+                                return {x: 85, y: 150};
+                        }
+                    })(),
+                    colorClass: index === 0 || index === 2 ? "player-red" : "player-blue"
+                }))
+            );
         } catch (error) {
             console.log("error", error);
         }
@@ -53,46 +72,44 @@ function OpenMatchModal({show, handleClose, id}) {
         getMatch()
     }, [id])
 
-    const playersToString = (players) => {
-        return players && players.map((player) => player.name).join(', ');
-    };
-
     return (
         <div>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} dialogClassName="custom-modal">
                 <Modal.Header>
                     <Modal.Title>{title}</Modal.Title>
                 </Modal.Header>
                 <ModalBody>
                     <form>
                         <InputWithLabel
-                            title="Categoria:"
+                            placeholder="Categoria:"
                             type="text"
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
                             className="input"
                         />
                         <InputWithLabel
-                            title="Data:"
+                            placeholder="Categoria:"
                             type="datetime-local"
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
                             className="input"
                         />
                         <InputWithLabel
-                            title="Local:"
+                            placeholder="Local:"
                             type="text"
                             value={local}
                             onChange={(e) => setLocal(e.target.value)}
                             className="input"
                         />
-                        <InputWithLabel
-                            title="Jogadores:"
-                            type="text"
-                            value={playersToString(players)}
-                            onChange={(e) => setPlayers(e.target.value)}
-                            className="input"
-                        />
+                        {players && players.map((player, index) => (
+                            <div
+                                key={index}
+                                className={`player ${player.colorClass}`}
+                                style={{top: `${player.position.y}px`, left: `${player.position.x}px`}}
+                            >
+                                {player.name}
+                            </div>
+                        ))}
                     </form>
                     <Modal.Footer>
                         <Button className="button-save" onClick={addPlayer}>Entrar na partida</Button>

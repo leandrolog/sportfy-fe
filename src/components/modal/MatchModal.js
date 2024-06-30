@@ -52,31 +52,31 @@ function MatchModal({modalTitle, data}) {
                 <ModalBody>
                     <form>
                         <InputWithLabel
-                            title="Titulo:"
+                            placeholder="Titulo:"
                             type="text"
                             onChange={(e) => setTitle(e.target.value)}
                             className="input"
                         />
                         <InputWithLabel
-                            title="Categoria:"
+                            placeholder="Categoria:"
                             type="text"
                             onChange={(e) => setCategory(e.target.value)}
                             className="input"
                         />
                         <InputWithLabel
-                            title="Vagas:"
+                            placeholder="Vagas:"
                             type="text"
                             onChange={(e) => setSlot(e.target.value)}
                             className="input"
                         />
                         <InputWithLabel
-                            title="Data:"
+                            placeholder="Data:"
                             type="datetime-local"
                             onChange={(e) => setDate(e.target.value)}
                             className="input"
                         />
                         <InputWithLabel
-                            title="Local:"
+                            placeholder="Local:"
                             type="text"
                             onChange={(e) => setLocal(e.target.value)}
                             className="input"
